@@ -31,7 +31,7 @@ export default function <State>(
 ): (store: Store<State>) => void {
   options = options || {};
 
-  const storage = options.storage || (window && window.localStorage);
+  const storage = options.storage || (typeof window !== 'undefined' && window.localStorage);
   const key = options.key || "vuex";
 
   function getState(key, storage) {
